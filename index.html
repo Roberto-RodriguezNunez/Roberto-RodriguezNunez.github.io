@@ -80,10 +80,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 .portrait-wrap{position:relative;justify-self:end;width:100%;max-width:380px}
 .portrait{display:block;width:100%;height:auto;aspect-ratio:1/1.12;object-fit:cover;object-position:50% 30%;border-radius:22px;box-shadow:0 2px 4px #0B1A2C14,0 24px 60px #0B1A2C24;background:var(--panel)}
-.pass{position:absolute;left:-40px;bottom:30px;background:var(--bg);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 18px 14px 16px;display:grid;gap:2px;min-width:0;max-width:280px;border-left:3px solid var(--accent)}
-.pass-k{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ok)}
-.pass-t{font-family:var(--f-display);font-weight:700;font-size:1rem;letter-spacing:-.01em}
-.pass-s{font-size:.8rem;color:var(--muted)}
+.pass{position:absolute;left:-40px;bottom:26px;background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px 14px 10px 12px;display:grid;gap:1px;min-width:0;width:max-content;border-left:3px solid var(--accent);white-space:nowrap}
+.pass-k{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ok)}
+.pass-t{font-family:var(--f-display);font-weight:700;font-size:.82rem;letter-spacing:-.01em}
+.pass-s{font-size:.7rem;color:var(--muted)}
 .pass .icao{font-family:var(--f-mono);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
 .pass .arrow{color:var(--route)}
 .pass small{grid-column:1/-1;font-size:.72rem;color:var(--muted)}
@@ -91,7 +91,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:44px 56px}
   .portrait-wrap{justify-self:start;max-width:300px;order:-1}
-  .pass{position:relative;left:auto;right:auto;bottom:auto;margin:-26px 0 0 14px;max-width:calc(100% - 28px)}
+  .pass{position:relative;left:auto;right:auto;bottom:auto;margin:-22px 0 0 14px}
 }
 @media (max-width:420px){.portrait-wrap{max-width:260px}}
 
@@ -423,7 +423,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="pass">
         <span class="pass-k"><span lang="en">Now</span><span lang="es">Ahora</span></span>
         <span class="pass-t">Software Design Assurance Trainee</span>
-        <span class="pass-s"><span lang="en">Airbus Defence and Space · MASI26 programme</span><span lang="es">Airbus Defence and Space · programa MASI26</span></span>
+        <span class="pass-s">Airbus Defence and Space · MASI26</span>
       </div>
     </div>
   </div>
