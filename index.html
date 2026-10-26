@@ -182,6 +182,72 @@ section.sec.route-sec{padding-block:80px 24px}
   .stop .arc .km{grid-column:auto}
 }
 
+/* ---------- career schedule ---------- */
+section.sec.career-sec{padding-block:88px 72px}
+.sched-card{background:var(--bg);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.sched-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sched{--years:7;position:relative;display:grid;grid-template-columns:132px minmax(0,1fr);min-width:860px;padding:22px 28px 18px 0}
+.lane-l{display:flex;align-items:center;padding-left:24px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);position:sticky;left:0;z-index:3;background:var(--bg)}
+.axis-l{border-top:0}
+.strack{position:relative;height:58px;border-top:1px solid var(--line);background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:calc(100% / var(--years)) 100%;background-position:0 0}
+.strack.axis{height:34px;border-top:0;background-image:none}
+.strack.ms-track{height:50px}
+.yr-tick{position:absolute;left:calc(var(--x) / var(--years) * 100%);top:6px;transform:translateX(-50%);font-family:var(--f-mono);font-size:.74rem;color:var(--ink2);font-variant-numeric:tabular-nums}
+.yr-tick:first-child{transform:none}
+.sbar{all:unset;box-sizing:border-box;position:absolute;top:11px;height:36px;left:calc(var(--s) / var(--years) * 100%);width:calc((var(--e) - var(--s)) / var(--years) * 100%);border-radius:9px;padding:0 12px;display:flex;align-items:center;font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;transition:box-shadow .15s,transform .15s,background .15s;z-index:1}
+.sbar>span{overflow:hidden;text-overflow:ellipsis}
+.sbar.s-edu{background:#E3EDF9;color:#0B2E5E;border:1px solid #BCD1EC}
+.sbar.s-edu2{background:#FFFFFF;color:var(--accent);border:1.5px solid var(--route);top:15px;height:28px;z-index:2;font-size:.76rem;padding:0 10px}
+.sbar.fade-l{display:flex;border-left:0;border-top-left-radius:0;border-bottom-left-radius:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 90px);mask-image:linear-gradient(90deg,transparent 0,#000 90px);padding-left:72px}
+.sbar.s-xp{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.sbar.s-xp.s-soft{background:#5C7FAE;border-color:#5C7FAE}
+.sbar.s-fel{background:#E2F3EA;color:#145C3E;border:1px solid #AED9C3}
+.sbar.s-next{background:repeating-linear-gradient(135deg,var(--panel) 0 8px,#FFFFFF 8px 16px);color:var(--muted);border:1.5px dashed var(--line2)}
+.sbar:hover{box-shadow:0 4px 14px #0B1A2C1F}
+@media (prefers-reduced-motion:no-preference){.sbar:hover{transform:translateY(-1px)}}
+.sbar[aria-pressed="true"]{box-shadow:0 0 0 3px #FFFFFF,0 0 0 5px var(--accent),0 6px 18px #0B48A133}
+.sbar:focus-visible,.ms:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.ms{all:unset;position:absolute;top:0;bottom:0;left:calc(var(--x) / var(--years) * 100%);width:0;cursor:pointer;z-index:2}
+.ms i{position:absolute;left:-8px;top:17px;width:14px;height:14px;transform:rotate(45deg);background:var(--accent);border:2px solid var(--accent);border-radius:2px;transition:transform .15s}
+.ms.plan i{background:#FFFFFF}
+.ms:hover i{transform:rotate(45deg) scale(1.15)}
+.ms[aria-pressed="true"] i{box-shadow:0 0 0 3px #FFFFFF,0 0 0 5px var(--accent)}
+.ms-t{position:absolute;top:15px;left:14px;font-size:.78rem;font-weight:600;color:var(--ink2);white-space:nowrap}
+.ms-t.left{left:auto;right:14px}
+.today{position:absolute;top:30px;bottom:14px;left:calc(132px + (100% - 160px) * var(--x) / var(--years));width:2px;background:var(--accent);z-index:0;pointer-events:none}
+.today>span{position:absolute;top:-24px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.today::after{content:"";position:absolute;bottom:-5px;left:-4px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.sched-hint{display:none;font-family:var(--f-mono);font-size:.7rem;color:var(--muted);padding:0 20px 10px}
+.details{border-top:1px solid var(--line);background:var(--panel)}
+.detail[hidden]{display:none}
+.detail{display:grid;grid-template-columns:180px minmax(0,1fr);gap:28px;padding:30px 32px 32px}
+.d-logo{height:88px;border-radius:14px;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;padding:0 16px}
+.d-logo img{display:block;width:auto;max-width:100%}
+.d-next svg{width:30px;height:30px;fill:none;stroke:var(--muted);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.d-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.d-when{font-family:var(--f-mono);font-size:var(--t-sm);color:var(--route);font-variant-numeric:tabular-nums}
+.pill-now,.pill-plan{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:999px}
+.pill-now{color:var(--ok);background:#1F8A5B14;border:1px solid #1F8A5B40}
+.pill-plan{color:var(--muted);border:1px dashed var(--line2)}
+.detail h3{font-size:var(--t-md);font-weight:700;letter-spacing:-.015em;margin-top:6px}
+.d-org{color:var(--ink2);font-weight:500;margin-top:2px}
+.detail ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px;max-width:48rem}
+.detail li{position:relative;padding-left:20px;color:var(--muted)}
+.detail li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--route)}
+.detail .kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+@media (prefers-reduced-motion:no-preference){.detail:not([hidden]){animation:dIn .25s ease both}@keyframes dIn{from{opacity:.4;transform:translateY(4px)}}}
+@media (max-width:900px){
+  .sched-hint{display:block}
+  .sched{grid-template-columns:104px minmax(0,1fr)}
+  .lane-l{padding-left:16px;font-size:.64rem}
+  .today{left:calc(104px + (100% - 132px) * var(--x) / var(--years))}
+}
+@media (max-width:640px){
+  section.sec.career-sec{padding-block:60px 48px}
+  .detail{grid-template-columns:minmax(0,1fr);gap:16px;padding:22px 20px 24px}
+  .d-logo{height:64px;justify-self:start;min-width:140px}
+}
+
 /* ---------- focus ---------- */
 .focus{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .fcard{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:grid;gap:12px;align-content:start}
@@ -363,8 +429,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap">
     <a class="brand" href="#top"><i>RRN</i><span>Roberto Rodríguez</span></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#route"><span lang="en">Route</span><span lang="es">Recorrido</span></a>
-      <a href="#experience"><span lang="en">Experience</span><span lang="es">Experiencia</span></a>
+      <a href="#career"><span lang="en">Career</span><span lang="es">Trayectoria</span></a>
       <a href="#projects"><span lang="en">Projects</span><span lang="es">Proyectos</span></a>
       <a href="#skills"><span lang="en">Skills</span><span lang="es">Habilidades</span></a>
       <a href="#contact"><span lang="en">Contact</span><span lang="es">Contacto</span></a>
@@ -425,46 +490,162 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   </div>
 </div>
 
-<!-- ROUTE -->
-<section class="sec route-sec" id="route">
+<!-- CAREER -->
+<section class="sec career-sec" id="career">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <span class="label"><span lang="en">Route</span><span lang="es">Recorrido</span></span>
-        <h2 lang="en">From Vigo to Airbus</h2><h2 lang="es">De Vigo a Airbus</h2>
+        <span class="label"><span lang="en">Career</span><span lang="es">Trayectoria</span></span>
+        <h2 lang="en">Education and experience</h2><h2 lang="es">Formación y experiencia</h2>
       </div>
-      <p lang="en">Where I have studied and worked so far, and where I am heading next.</p>
-      <p lang="es">Dónde he estudiado y trabajado hasta ahora, y hacia dónde voy.</p>
+      <p lang="en">Laid out like the schedule of an aircraft programme: each bar is a stage, each diamond a milestone, and the blue line is today. Select any of them to see the details.</p>
+      <p lang="es">Planteado como el cronograma de un programa aeronáutico: cada barra es una etapa, cada rombo un hito y la línea azul es hoy. Pulsa cualquiera para ver el detalle.</p>
     </div>
-    <ol class="journey">
-      <li class="stop">
-        <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
-        <span class="place">Vigo · Ourense</span>
-        <span class="what" lang="en">Computer Engineering, UVigo</span><span class="what" lang="es">Ingeniería Informática, UVigo</span>
-        <span class="yr"><span lang="en">until 2026</span><span lang="es">hasta 2026</span></span>
-        <span class="arc" aria-hidden="true"><svg viewBox="0 0 100 44" preserveAspectRatio="none"><path d="M0 26 Q50 -6 100 26"/></svg><span class="km">1,443 km</span></span>
-      </li>
-      <li class="stop">
-        <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
-        <span class="place">Saarbrücken</span>
-        <span class="what">Erasmus, HTW Saar</span>
-        <span class="yr">2025 → 2026</span>
-        <span class="arc" aria-hidden="true"><svg viewBox="0 0 100 44" preserveAspectRatio="none"><path d="M0 26 Q50 -6 100 26"/></svg><span class="km">1,307 km</span></span>
-      </li>
-      <li class="stop now">
-        <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15.5v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V8.5l-8 5v2l8-2.5V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-5z" fill="currentColor" stroke="none"/></svg></span>
-        <span class="place">Getafe <em lang="en">Now</em><em lang="es">Ahora</em></span>
-        <span class="what">Airbus Defence and Space · MASI26</span>
-        <span class="yr">2026 → 2027</span>
-        <span class="arc next" aria-hidden="true"><svg viewBox="0 0 100 44" preserveAspectRatio="none"><path d="M0 26 Q50 -6 100 26"/></svg></span>
-      </li>
-      <li class="stop next">
-        <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        <span class="place" lang="en">Next</span><span class="place" lang="es">Próximo</span>
-        <span class="what" lang="en">Software architecture for autonomous systems</span>
-        <span class="what" lang="es">Arquitectura de software para sistemas autónomos</span>
-      </li>
-    </ol>
+
+    <div class="sched-card">
+      <div class="sched-scroll" id="sched-scroll">
+        <div class="sched" role="group" aria-label="Timeline of education and experience">
+          <!-- axis -->
+          <div class="lane-l axis-l"><span class="label" lang="en">Schedule</span><span class="label" lang="es">Cronograma</span></div>
+          <div class="strack axis">
+            <span class="yr-tick" style="--x:0">2022</span><span class="yr-tick" style="--x:1">2023</span><span class="yr-tick" style="--x:2">2024</span><span class="yr-tick" style="--x:3">2025</span><span class="yr-tick" style="--x:4">2026</span><span class="yr-tick" style="--x:5">2027</span><span class="yr-tick" style="--x:6">2028</span>
+          </div>
+
+          <!-- milestones -->
+          <div class="lane-l"><span lang="en">Milestones</span><span lang="es">Hitos</span></div>
+          <div class="strack ms-track">
+            <button type="button" class="ms" data-id="grad" style="--x:4.57" aria-pressed="false"><i aria-hidden="true"></i><span class="ms-t left"><span lang="en">Thesis defended · graduated</span><span lang="es">TFG defendido · graduado</span></span></button>
+            <button type="button" class="ms plan" data-id="masiend" style="--x:5.58" aria-pressed="false"><i aria-hidden="true"></i><span class="ms-t"><span lang="en">MASI26 ends</span><span lang="es">Fin del MASI26</span></span></button>
+          </div>
+
+          <!-- education -->
+          <div class="lane-l"><span lang="en">Education</span><span lang="es">Formación</span></div>
+          <div class="strack">
+            <button type="button" class="sbar s-edu fade-l" data-id="degree" style="--s:0;--e:4.58" aria-pressed="false"><span lang="en">BSc Computer Engineering · UVigo</span><span lang="es">Grado en Ingeniería Informática · UVigo</span></button>
+            <button type="button" class="sbar s-edu2" data-id="erasmus" style="--s:3.67;--e:4.17" aria-pressed="false">Erasmus</button>
+            <button type="button" class="sbar s-edu" data-id="masi" style="--s:4.68;--e:5.58" aria-pressed="false">MASI26</button>
+          </div>
+
+          <!-- experience -->
+          <div class="lane-l"><span lang="en">Experience</span><span lang="es">Experiencia</span></div>
+          <div class="strack">
+            <button type="button" class="sbar s-xp s-soft" data-id="itintern" style="--s:2;--e:4" aria-pressed="false"><span lang="en">IT Systems Intern · UVigo</span><span lang="es">Becario de sistemas IT · UVigo</span></button>
+            <button type="button" class="sbar s-xp" data-id="airbus" style="--s:4.68;--e:5.58" aria-pressed="true">Airbus</button>
+            <button type="button" class="sbar s-next" data-id="next" style="--s:5.62;--e:7" aria-pressed="false"><span lang="en">Next</span><span lang="es">Próximo</span></button>
+          </div>
+
+          <!-- fellowship -->
+          <div class="lane-l"><span lang="en">Fellowship</span><span lang="es">Fellowship</span></div>
+          <div class="strack">
+            <button type="button" class="sbar s-fel" data-id="bv" style="--s:4.5;--e:6.5" aria-pressed="false">beVisioneers · Mercedes-Benz</button>
+          </div>
+
+          <!-- today line -->
+          <div class="today" style="--x:4.82" aria-hidden="true"><span><span lang="en">Today</span><span lang="es">Hoy</span></span></div>
+        </div>
+      </div>
+      <p class="sched-hint" aria-hidden="true"><span lang="en">Swipe to see the whole timeline →</span><span lang="es">Desliza para ver todo el cronograma →</span></p>
+
+      <!-- details -->
+      <div class="details" aria-live="polite">
+        <article class="detail" data-id="airbus">
+          <div class="d-logo"><img src="logos/airbus.svg" alt="Airbus" style="height:22px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when">09/2026 → 07/2027</span><span class="pill-now"><span lang="en">Current</span><span lang="es">Actual</span></span></div>
+            <h3>Trainee, Software Design Assurance Engineer</h3>
+            <p class="d-org">Airbus Defence and Space · Systems Engineering · Getafe</p>
+            <ul lang="en"><li>Reviewing and assembling the software safety evidence that certification authorities require under DO-178C, with exposure to DO-254 for airborne hardware.</li><li>Placement within the MASI26 programme, run by UC3M and Airbus.</li></ul>
+            <ul lang="es"><li>Revisión y preparación de las evidencias de seguridad del software que exigen las autoridades de certificación según DO-178C, con contacto con DO-254 para hardware embarcado.</li><li>Prácticas dentro del programa MASI26, de la UC3M y Airbus.</li></ul>
+            <div class="kw"><span class="chip">DO-178C</span><span class="chip">DO-254</span><span class="chip" lang="en">Certification</span><span class="chip" lang="es">Certificación</span></div>
+          </div>
+        </article>
+        <article class="detail" data-id="masi" hidden>
+          <div class="d-logo"><img src="logos/uc3m.svg" alt="UC3M" style="height:46px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when">09/2026 → 07/2027</span><span class="pill-now"><span lang="en">Current</span><span lang="es">Actual</span></span></div>
+            <h3>Master in Aircraft Systems Integration (MASI26)</h3>
+            <p class="d-org">Universidad Carlos III de Madrid · Airbus Defence and Space · Getafe</p>
+            <ul lang="en"><li>Aircraft systems, avionics, flight performance and systems integration, taught in English and combined with a year-long placement at Airbus.</li><li>Year-long team project: a drone system for maritime interdiction, where I work on software, simulation and decision making.</li></ul>
+            <ul lang="es"><li>Sistemas de aeronave, aviónica, actuaciones e integración de sistemas, en inglés y combinado con un año de prácticas en Airbus.</li><li>Proyecto anual en equipo: un sistema de drones para interdicción marítima, en el que trabajo en software, simulación y toma de decisiones.</li></ul>
+            <div class="kw"><span class="chip" lang="en">Systems integration</span><span class="chip" lang="es">Integración de sistemas</span><span class="chip" lang="en">Avionics</span><span class="chip" lang="es">Aviónica</span><span class="chip">UAS</span></div>
+          </div>
+        </article>
+        <article class="detail" data-id="degree" hidden>
+          <div class="d-logo"><img src="logos/uvigo.svg" alt="Universidade de Vigo" style="height:22px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when"><span lang="en">Completed 07/2026</span><span lang="es">Finalizado 07/2026</span></span></div>
+            <h3 lang="en">BSc in Computer Engineering</h3><h3 lang="es">Grado en Ingeniería Informática</h3>
+            <p class="d-org">ESEI · Universidade de Vigo · Ourense</p>
+            <ul lang="en"><li>Final-year thesis: LeaLink, a reinforcement learning controller for a shared community battery, deployed on edge hardware with a web platform for the households.</li><li>Software engineering, artificial intelligence and multi-agent systems.</li></ul>
+            <ul lang="es"><li>TFG: LeaLink, un controlador de aprendizaje por refuerzo para una batería comunitaria compartida, desplegado en hardware edge y con una plataforma web para las viviendas.</li><li>Ingeniería del software, inteligencia artificial y sistemas multiagente.</li></ul>
+            <div class="kw"><span class="chip">Python</span><span class="chip">C++</span><span class="chip">Java</span><span class="chip" lang="en">Reinforcement learning</span><span class="chip" lang="es">Aprendizaje por refuerzo</span></div>
+          </div>
+        </article>
+        <article class="detail" data-id="erasmus" hidden>
+          <div class="d-logo"><img src="logos/htw.svg" alt="htw saar" style="height:24px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when">09/2025 → 03/2026</span></div>
+            <h3 lang="en">Erasmus exchange</h3><h3 lang="es">Erasmus</h3>
+            <p class="d-org">HTW Saar · Saarbrücken, <span lang="en">Germany</span><span lang="es">Alemania</span></p>
+            <ul lang="en"><li>A semester in Germany studying in English and German.</li><li>Co-authored a paper, written in German, on LLM-assisted failure mode and effects analysis (FMEA).</li></ul>
+            <ul lang="es"><li>Estancia en Alemania con clases en inglés y alemán.</li><li>Coautor de un artículo en alemán sobre análisis de modos de fallo y efectos (FMEA) asistido por LLM.</li></ul>
+            <div class="kw"><span class="chip">FMEA</span><span class="chip">LLM</span><span class="chip" lang="en">German B1</span><span class="chip" lang="es">Alemán B1</span></div>
+          </div>
+        </article>
+        <article class="detail" data-id="itintern" hidden>
+          <div class="d-logo"><img src="logos/uvigo.svg" alt="Universidade de Vigo" style="height:22px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when">2024 → 2025</span></div>
+            <h3 lang="en">IT Systems Intern</h3><h3 lang="es">Becario de sistemas IT</h3>
+            <p class="d-org">Universidade de Vigo</p>
+            <ul lang="en"><li>Internship with the university's IT systems.</li></ul>
+            <ul lang="es"><li>Prácticas en los sistemas IT de la universidad.</li></ul>
+            <div class="kw"><span class="chip">Linux</span><span class="chip" lang="en">IT systems</span><span class="chip" lang="es">Sistemas IT</span></div>
+          </div>
+        </article>
+        <article class="detail" data-id="bv" hidden>
+          <div class="d-logo"><img src="logos/bevisioneers.svg" alt="beVisioneers" style="height:34px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when">2026 → 2028</span><span class="pill-now"><span lang="en">Current</span><span lang="es">Actual</span></span></div>
+            <h3>beVisioneers Fellow, Cohort 4</h3>
+            <p class="d-org">The Mercedes-Benz Fellowship · <span lang="en">Energy access</span><span lang="es">Acceso a la energía</span></p>
+            <ul lang="en"><li>Two-year venture programme. I am taking LeaLink from thesis to a product for solar self-consumption communities in Spain, with a venture coach and a mentor.</li><li>Problem and solution milestones delivered, including value proposition, early adopters and assumption testing.</li></ul>
+            <ul lang="es"><li>Programa de emprendimiento de dos años. Llevo LeaLink de TFG a producto para comunidades de autoconsumo solar en España, con una venture coach y una mentora.</li><li>Hitos de problema y solución entregados, con propuesta de valor, early adopters y pruebas de hipótesis.</li></ul>
+            <div class="kw"><span class="chip">LeaLink</span><span class="chip" lang="en">Venture building</span><span class="chip" lang="es">Emprendimiento</span></div>
+          </div>
+        </article>
+        <article class="detail" data-id="grad" hidden>
+          <div class="d-logo"><img src="logos/uvigo.svg" alt="Universidade de Vigo" style="height:22px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when">07/2026</span></div>
+            <h3 lang="en">Thesis defended and graduated</h3><h3 lang="es">TFG defendido y graduado</h3>
+            <p class="d-org">ESEI · Universidade de Vigo</p>
+            <ul lang="en"><li>Defended LeaLink: a Residual SAC agent on top of model predictive control, +1.5% over the realistic baseline in held-out evaluation.</li></ul>
+            <ul lang="es"><li>Defensa de LeaLink: un agente Residual SAC sobre control predictivo, +1,5% sobre la referencia realista en la evaluación con datos no vistos.</li></ul>
+          </div>
+        </article>
+        <article class="detail" data-id="masiend" hidden>
+          <div class="d-logo"><img src="logos/uc3m.svg" alt="UC3M" style="height:46px"></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when">07/2027</span><span class="pill-plan"><span lang="en">Planned</span><span lang="es">Previsto</span></span></div>
+            <h3 lang="en">End of MASI26</h3><h3 lang="es">Fin del MASI26</h3>
+            <p class="d-org">UC3M · Airbus Defence and Space</p>
+            <ul lang="en"><li>End of the master's and of the placement at Airbus.</li></ul>
+            <ul lang="es"><li>Fin del máster y de las prácticas en Airbus.</li></ul>
+          </div>
+        </article>
+        <article class="detail" data-id="next" hidden>
+          <div class="d-logo d-next" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <div class="d-body">
+            <div class="d-top"><span class="d-when"><span lang="en">From 2027</span><span lang="es">Desde 2027</span></span></div>
+            <h3 lang="en">Software architecture for autonomous systems</h3><h3 lang="es">Arquitectura de software para sistemas autónomos</h3>
+            <p class="d-org" lang="en">Where I am heading</p><p class="d-org" lang="es">Hacia dónde voy</p>
+            <ul lang="en"><li>Safety critical software and AI on board drones and aircraft: deciding how the system is built, not only writing parts of it.</li></ul>
+            <ul lang="es"><li>Software crítico e IA a bordo de drones y aeronaves: decidir cómo se construye el sistema, no solo escribir partes de él.</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -502,66 +683,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
         <p lang="es">Aprendizaje por refuerzo sobre control predictivo, desplegado en hardware edge para placas y baterías compartidas.</p>
         <div class="kw"><span class="chip">Residual SAC</span><span class="chip">MPC</span><span class="chip">ONNX</span><span class="chip">RD 244/2019</span></div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="sec" id="experience">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="label"><span lang="en">Experience</span><span lang="es">Experiencia</span></span>
-        <h2 lang="en">Where I have worked</h2><h2 lang="es">Dónde he trabajado</h2>
-      </div>
-    </div>
-    <div class="xp">
-      <div class="xrow now">
-        <div class="dates">09/2026 → 07/2027</div>
-        <div class="rail" aria-hidden="true"></div>
-        <div class="body">
-          <div class="xhead"><span class="tile" aria-hidden="true"><img src="logos/airbus.svg" alt="" style="height:15px"></span><div>
-          <h3>Trainee, Software Design Assurance Engineer</h3>
-          <div class="org"><span>Airbus Defence and Space</span><span>Systems Engineering</span><span>Getafe</span></div></div></div>
-          <ul lang="en">
-            <li>Reviewing and assembling the software safety evidence that certification authorities require under DO-178C, with exposure to DO-254 for airborne hardware.</li>
-            <li>Placement within MASI26, a master's programme in aircraft systems integration run by UC3M and Airbus.</li>
-          </ul>
-          <ul lang="es">
-            <li>Revisión y preparación de las evidencias de seguridad del software que exigen las autoridades de certificación según DO-178C, con contacto con DO-254 para hardware embarcado.</li>
-            <li>Prácticas dentro del MASI26, un máster en integración de sistemas de aeronave de la UC3M y Airbus.</li>
-          </ul>
-          <div class="kw"><span class="chip">DO-178C</span><span class="chip">DO-254</span><span class="chip" lang="en">Certification</span><span class="chip" lang="es">Certificación</span></div>
-        </div>
-      </div>
-      <div class="xrow">
-        <div class="dates">2026 → 2028</div>
-        <div class="rail" aria-hidden="true"></div>
-        <div class="body">
-          <div class="xhead"><span class="tile" aria-hidden="true"><img src="logos/bevisioneers.svg" alt="" style="height:25px"></span><div>
-          <h3>beVisioneers Fellow, Cohort 4</h3>
-          <div class="org"><span>The Mercedes-Benz Fellowship</span><span lang="en">Energy access</span><span lang="es">Acceso a la energía</span></div></div></div>
-          <ul lang="en">
-            <li>Two-year venture programme. I am taking LeaLink from thesis to a product for solar self-consumption communities in Spain, with a venture coach and a mentor.</li>
-            <li>Problem and solution milestones validated, including value proposition, early adopter and assumption testing work.</li>
-          </ul>
-          <ul lang="es">
-            <li>Programa de emprendimiento de dos años. Llevo LeaLink de TFG a producto para comunidades de autoconsumo solar en España, con una venture coach y una mentora.</li>
-            <li>Hitos de problema y solución entregados, con propuesta de valor, early adopters y pruebas de hipótesis.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="xrow">
-        <div class="dates">2024 → 2025</div>
-        <div class="rail" aria-hidden="true"></div>
-        <div class="body">
-          <div class="xhead"><span class="tile" aria-hidden="true"><img src="logos/uvigo.svg" alt="" style="height:15px"></span><div>
-          <h3 lang="en">IT Systems Intern</h3><h3 lang="es">Becario de sistemas IT</h3>
-          <div class="org"><span>Universidade de Vigo</span></div></div></div>
-          <ul lang="en"><li>Internship with the university's IT systems.</li></ul>
-          <ul lang="es"><li>Prácticas en los sistemas IT de la universidad.</li></ul>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -715,44 +836,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section class="sec tint" id="education">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="label"><span lang="en">Education</span><span lang="es">Formación</span></span>
-        <h2 lang="en">Education</h2><h2 lang="es">Formación</h2>
-      </div>
-    </div>
-    <div class="edu">
-      <div class="ecard">
-        <div class="elogo"><img src="logos/uc3m.svg" alt="UC3M" style="height:38px"><img src="logos/airbus.svg" alt="Airbus" style="height:15px"></div>
-        <span class="yr">2026 → 2027</span>
-        <h3>Master in Aircraft Systems Integration</h3>
-        <span class="where">UC3M · Airbus Defence and Space</span>
-        <p lang="en">MASI26. Aircraft systems, avionics and integration, combined with a year-long placement at Airbus.</p>
-        <p lang="es">MASI26. Sistemas de aeronave, aviónica e integración, combinado con un año de prácticas en Airbus.</p>
-      </div>
-      <div class="ecard">
-        <div class="elogo"><img src="logos/uvigo.svg" alt="Universidade de Vigo" style="height:22px"></div>
-        <span class="yr">→ 2026</span>
-        <h3 lang="en">BSc in Computer Engineering</h3><h3 lang="es">Grado en Ingeniería Informática</h3>
-        <span class="where">ESEI · Universidade de Vigo</span>
-        <p lang="en">Final-year thesis: LeaLink, reinforcement learning for energy communities.</p>
-        <p lang="es">TFG: LeaLink, aprendizaje por refuerzo para comunidades energéticas.</p>
-      </div>
-      <div class="ecard">
-        <div class="elogo"><img src="logos/htw.svg" alt="htw saar" style="height:20px"></div>
-        <span class="yr">2025 → 2026</span>
-        <h3 lang="en">Erasmus exchange</h3><h3 lang="es">Erasmus</h3>
-        <span class="where">HTW Saar · Saarbrücken</span>
-        <p lang="en">A semester in Germany, studying in English and German.</p>
-        <p lang="es">Estancia en Alemania, con clases en inglés y alemán.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="sec" id="contact">
   <div class="wrap">
@@ -795,6 +878,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   var bar=document.getElementById('bar'), prog=document.getElementById('progress');
   function onScroll(){bar.classList.toggle('scrolled',window.scrollY>8);var h=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')'}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // career schedule
+  var sched=document.querySelectorAll('.sbar[data-id],.ms[data-id]'), dets=document.querySelectorAll('.detail[data-id]');
+  function pick(id){
+    sched.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.id===id))});
+    dets.forEach(function(d){d.hidden=d.dataset.id!==id});
+  }
+  sched.forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.id)})});
+  var sc=document.getElementById('sched-scroll');
+  var td=document.querySelector('.today');
+  if(sc&&td&&sc.scrollWidth>sc.clientWidth){sc.scrollLeft=Math.max(0,td.offsetLeft-sc.clientWidth*0.62)}
 
   // project filters
   var fbtn=document.querySelectorAll('[data-f]'), cards=document.querySelectorAll('#grid .card');
